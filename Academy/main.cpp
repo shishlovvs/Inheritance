@@ -1,4 +1,4 @@
-#include<iostream>
+ï»¿#include<iostream>
 #include<string>
 using namespace std;
 
@@ -48,7 +48,7 @@ public:
 			//Methods:
 	void print()const
 	{
-		cout << last_name << " " << first_name << " " << age << " ëåò.\n";
+		cout << last_name << " " << first_name << " " << age << " Ð»ÐµÑ‚.\n";
 	}
 };
 
@@ -88,7 +88,7 @@ public:
 	(
 		const string& last_name, const string& first_name, unsigned int age,
 		const string& speciality, const string& group, double rating
-	):Human(last_name, first_name, age) //äåëåãèðóåì êîíñòðóêòîð áàçîâîãî êëàññà
+	):Human(last_name, first_name, age) //Ð´ÐµÐ»ÐµÐ³Ð¸Ñ€ÑƒÐµÐ¼ ÐºÐ¾Ð½ÑÑ‚Ñ€ÑƒÐºÑ‚Ð¾Ñ€ Ð±Ð°Ð·Ð¾Ð²Ð¾Ð³Ð¾ ÐºÐ»Ð°ÑÑÐ°
 	{
 		set_speciality(speciality);
 		set_group(group);
@@ -103,14 +103,14 @@ public:
 	void print()const
 	{
 		Human::print();
-		cout << "Ñïåöèàëüíîñòü: " << speciality << " Ãðóïïà: " << group << " Óñïåâàåìîñòü: " << rating << endl;
+		cout << "Ð¡Ð¿ÐµÑ†Ð¸Ð°Ð»ÑŒÐ½Ð¾ÑÑ‚ÑŒ: " << speciality << " Ð“Ñ€ÑƒÐ¿Ð¿Ð°: " << group << " Ð£ÑÐ¿ÐµÐ²Ð°ÐµÐ¼Ð¾ÑÑ‚ÑŒ: " << rating << endl;
 	}
 };
 
 class Teacher :public Human
 {
-	string subject;		//ïðåäìåò, êîòîðûé îí âåäåò
-	unsigned int experience; //ïðåïîäàâàòåëüñêèé ñòàæ
+	string subject;		//Ð¿Ñ€ÐµÐ´Ð¼ÐµÑ‚, ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ð¹ Ð¾Ð½ Ð²ÐµÐ´ÐµÑ‚
+	unsigned int experience; //Ð¿Ñ€ÐµÐ¿Ð¾Ð´Ð°Ð²Ð°Ñ‚ÐµÐ»ÑŒÑÐºÐ¸Ð¹ ÑÑ‚Ð°Ð¶
 public:
 	const string& get_subject()const
 	{
@@ -134,7 +134,7 @@ public:
 	(
 		const string& last_name, const string& first_name, unsigned int age,
 		const string& subject, unsigned int experience
-	) :Human(last_name, first_name, age) //äåëåãèðóåì êîíñòðóêòîð áàçîâîãî êëàññà
+	) :Human(last_name, first_name, age) //Ð´ÐµÐ»ÐµÐ³Ð¸Ñ€ÑƒÐµÐ¼ ÐºÐ¾Ð½ÑÑ‚Ñ€ÑƒÐºÑ‚Ð¾Ñ€ Ð±Ð°Ð·Ð¾Ð²Ð¾Ð³Ð¾ ÐºÐ»Ð°ÑÑÐ°
 	{
 		set_subject(subject);
 		set_experience(experience);
@@ -149,14 +149,14 @@ public:
 	void print()const
 	{
 		Human::print();
-		cout << "Ïðåäìåò: " << subject << " Ïðåïîäàâàòåëüñêèé ñòàæ: " << experience << endl;
+		cout << "ÐŸÑ€ÐµÐ´Ð¼ÐµÑ‚: " << subject << " ÐŸÑ€ÐµÐ¿Ð¾Ð´Ð°Ð²Ð°Ñ‚ÐµÐ»ÑŒÑÐºÐ¸Ð¹ ÑÑ‚Ð°Ð¶: " << experience << endl;
 	}
 };
 
 class Graduated :public Human//, public Student
 {
-	string main_theme_of_diploma;	//òåìà äèïëîìà
-	string readiness;				//ãîòîâíîñòü íàïèñàíèÿ
+	string main_theme_of_diploma;	//Ñ‚ÐµÐ¼Ð° Ð´Ð¸Ð¿Ð»Ð¾Ð¼Ð°
+	string readiness;				//Ð³Ð¾Ñ‚Ð¾Ð²Ð½Ð¾ÑÑ‚ÑŒ Ð½Ð°Ð¿Ð¸ÑÐ°Ð½Ð¸Ñ
 public:
 	const string& get_main_theme_of_diploma()const
 	{
@@ -181,7 +181,7 @@ public:
 		const string& last_name, const string& first_name, unsigned int age,
 		//const string& speciality, const string& group, double rating,
 		const string& main_theme_of_diploma, const string& readiness
-	) :Human(last_name, first_name, age)//, Student(speciality, group,rating)  //äåëåãèðóåì êîíñòðóêòîð áàçîâîãî êëàññà
+	) :Human(last_name, first_name, age)//, Student(speciality, group,rating)  //Ð´ÐµÐ»ÐµÐ³Ð¸Ñ€ÑƒÐµÐ¼ ÐºÐ¾Ð½ÑÑ‚Ñ€ÑƒÐºÑ‚Ð¾Ñ€ Ð±Ð°Ð·Ð¾Ð²Ð¾Ð³Ð¾ ÐºÐ»Ð°ÑÑÐ°
 	{
 		set_main_theme_of_diploma(main_theme_of_diploma);
 		set_readiness(readiness);
@@ -195,7 +195,7 @@ public:
 	void print()const
 	{
 		Human::print();
-		cout << "Íàçâàíèå äèïëîìà: " << main_theme_of_diploma << " Ãîòîâíîñòü: " << readiness << endl;
+		cout << "ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ Ð´Ð¸Ð¿Ð»Ð¾Ð¼Ð°: " << main_theme_of_diploma << " Ð“Ð¾Ñ‚Ð¾Ð²Ð½Ð¾ÑÑ‚ÑŒ: " << readiness << endl;
 	}
 };
 
