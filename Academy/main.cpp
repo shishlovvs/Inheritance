@@ -124,7 +124,7 @@ public:
 	{
 		this->subject = subject;
 	}
-	void set_experience(unsigned int experince)
+	void set_experience(unsigned int experience)
 	{
 		this->experience = experience;
 	}
