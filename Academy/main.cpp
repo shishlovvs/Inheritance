@@ -153,7 +153,7 @@ public:
 	}
 };
 
-class Graduated :public Human//, public Student
+class Graduated :public Student
 {
 	string main_theme_of_diploma;	//тема диплома
 	string readiness;				//готовность написания
@@ -179,9 +179,9 @@ public:
 	Graduated
 	(
 		const string& last_name, const string& first_name, unsigned int age,
-		//const string& speciality, const string& group, double rating,
+		const string& speciality, const string& group, double rating,
 		const string& main_theme_of_diploma, const string& readiness
-	) :Human(last_name, first_name, age)//, Student(speciality, group,rating)  //делегируем конструктор базового класса
+	) :Student(last_name, first_name, age, speciality, group, rating)  //делегируем конструктор базового класса
 	{
 		set_main_theme_of_diploma(main_theme_of_diploma);
 		set_readiness(readiness);
@@ -194,7 +194,7 @@ public:
 			//Methods:
 	void print()const
 	{
-		Human::print();
+		Student::print();
 		cout << "Название диплома: " << main_theme_of_diploma << " Готовность: " << readiness << endl;
 	}
 };
@@ -213,6 +213,6 @@ void main()
 	Teacher t("Walter", "White", 47, "Chemistry", 20);
 	t.print();
 
-	Graduated g("Pinkman", "Jessi", 22, "How to brew the purest methamphetamine", "83%");
+	Graduated g("Pinkman", "Jessi", 22, "Chemistry", "WW_01", 83, "How to brew the purest methamphetamine", "91%");
 	g.print();
 }
