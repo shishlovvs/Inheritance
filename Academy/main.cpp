@@ -2,6 +2,8 @@
 #include<string>
 using namespace std;
 
+//#define INHERITANCE
+
 class Human
 {
 	std::string last_name;
@@ -46,7 +48,7 @@ public:
 		cout << "HDestructor:\t" << this << endl;
 	}
 			//Methods:
-	void print()const
+	virtual void print()const
 	{
 		cout << last_name << " " << first_name << " " << age << " лет.\n";
 	}
@@ -202,6 +204,7 @@ public:
 void main()
 {
 	setlocale(LC_ALL, "ru");
+#ifdef INHERITANCE
 
 	Human h("Montana", "Antonio", 35);
 	h.print();
@@ -215,4 +218,25 @@ void main()
 
 	Graduated g("Pinkman", "Jessi", 22, "Chemistry", "WW_01", 83, "How to brew the purest methamphetamine", "91%");
 	g.print();
+#endif // INHERITANCE
+
+
+	//Generalization:
+	Human* group[] =
+	{
+		new Student("Pinkman", "Jessi", 22, "Chemistry", "WW_01", 83),			//upcast
+		new Student("Vercetti", "Tommy", 30, "Criminal","Vice",90),				//upcast
+		new Teacher("Walter", "White", 47, "Chemistry", 20),					//upcast
+		new Student("Diaz","Ricardo",55,"Weapons distribution", "Vice", 92),	//upcast
+		new Graduated("Pinkman", "Jessi", 22, "Chemistry", "WW_01", 83, 
+		"How to brew the purest methamphetamine", "91%"),						//upcast
+		new Teacher("Einstein","Albert",143,"Astronomy",120)					//upcast
+	};
+
+	for (int i = 0; i < sizeof(group) / sizeof(Human*); i++)
+	{
+		cout << "\n---------------------------------\n";
+		group[i]->print();
+	}
+	cout << "\n---------------------------------\n";
 }
