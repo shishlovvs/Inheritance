@@ -4,55 +4,85 @@ using namespace std;
 
 //#define INHERITANCE
 
+//////////////////////
+//ОБЪЁЯВЛЕНИЕ КЛАССА//
+/////////////////////
 class Human
 {
 	std::string last_name;
 	std::string first_name;
 	unsigned int age;
 public:
-	const string& get_last_name()const
-	{
-		return last_name;
-	}
-	const string& get_first_name()const
-	{
-		return first_name;
-	}
-	unsigned int get_age()const
-	{
-		return age;
-	}
-	void set_last_name(const string& last_name)
-	{
-		this->last_name = last_name;
-	}
-	void set_first_name(const string& first_name)
-	{
-		this->first_name = first_name;
-	}
-	void set_age(unsigned int age)
-	{
-		this->age = age;
-	}
+	const string& get_last_name()const;
+	const string& get_first_name()const;
+	unsigned int get_age()const;
+	void set_last_name(const string& last_name);
+	void set_first_name(const string& first_name);
+	void set_age(unsigned int age);
 
 				//Constructors:
-	Human(const string& last_name, const string& first_name, unsigned int age)
-	{
-		set_last_name(last_name);
-		set_first_name(first_name);
-		set_age(age);
-		cout << "HConstructor:\t" << this << endl;
-	}
-	~Human()
-	{
-		cout << "HDestructor:\t" << this << endl;
-	}
+	Human(const string& last_name, const string& first_name, unsigned int age);
+	virtual ~Human();
 			//Methods:
-	virtual void print()const
-	{
-		cout << last_name << " " << first_name << " " << age << " лет.\n";
-	}
+	virtual void print()const;
 };
+
+///////////////////////////
+//КОНЕЦ ОБЪЯВЛЕНИЕ КЛАССА//
+///////////////////////////
+
+//---------------------------------------------------------------------------------------//
+
+//////////////////////
+//ОПРЕДЕЛЕНИЕ КЛАССА//
+/////////////////////
+
+const string& Human::get_last_name()const
+{
+	return last_name;
+}
+const string& Human::get_first_name()const
+{
+	return first_name;
+}
+unsigned int Human::get_age()const
+{
+	return age;
+}
+void Human::set_last_name(const string& last_name)
+{
+	this->last_name = last_name;
+}
+void Human::set_first_name(const string& first_name)
+{
+	this->first_name = first_name;
+}
+void Human::set_age(unsigned int age)
+{
+	this->age = age;
+}
+
+//Constructors:
+Human::Human(const string& last_name, const string& first_name, unsigned int age)
+{
+	set_last_name(last_name);
+	set_first_name(first_name);
+	set_age(age);
+	cout << "HConstructor:\t" << this << endl;
+}
+/*virtual*/ Human::~Human()
+{
+	cout << "HDestructor:\t" << this << endl;
+}
+//Methods:
+/*virtual*/ void Human::print()const
+{
+	cout << last_name << " " << first_name << " " << age << " лет.\n";
+}
+
+/////////////////////////////
+//КОНЕЦ ОПРЕДЕЛЕНИЯ КЛАССА//
+////////////////////////////
 
 class Student :public Human
 {
@@ -239,4 +269,9 @@ void main()
 		group[i]->print();
 	}
 	cout << "\n---------------------------------\n";
+
+	for (int i = 0; i < sizeof(group)/sizeof(Human*); i++)
+	{
+		delete[] group[i];
+	}
 }
