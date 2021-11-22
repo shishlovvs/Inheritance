@@ -2,22 +2,8 @@
 #include"Student.h"
 #include"Teacher.h"
 #include"Graduated.h"
-
+#include<fstream>
 //---------------------------------------------------------------------------------------//
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 void main()
 {
@@ -38,6 +24,7 @@ void main()
 	g.print();
 #endif // INHERITANCE
 
+	
 
 	//Generalization:
 	Human* group[] =
@@ -62,4 +49,32 @@ void main()
 	{
 		delete[] group[i];
 	}
+
+	fstream fout("FileGroup.txt", std::ios_base::app);		//создаем и открываем поток
+	for (int i = 0; i < sizeof(group) / sizeof(Human*); i++)
+	{
+		cout << "\n---------------------------------\n";
+		fout << &group[i] << endl;
+	}
+	//fout << sizeof(group) << endl;
+	fout.close();
+	system("notepad FileGroup.txt");
+
+	const int SIZE = 256;
+	char buffer[SIZE] = {};
+
+	ifstream fin("FileGroup.txt");
+	if (fin.is_open())
+	{
+		while (!fin.eof())			//пока не конец файл(end of file)
+		{
+			//fin >> buffer;
+			fin.getline(buffer, SIZE);
+			cout << buffer << endl;
+		}
+	}
+	else {
+		cerr << "File not found" << endl;
+	}
+	fin.close();
 }
