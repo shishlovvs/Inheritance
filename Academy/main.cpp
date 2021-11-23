@@ -38,7 +38,7 @@ void main()
 		new Teacher("Einstein","Albert",143,"Astronomy",120)					//upcast
 	};
 
-	for (int i = 0; i < sizeof(group) / sizeof(Human*); i++)
+	/*for (int i = 0; i < sizeof(group) / sizeof(Human*); i++)
 	{
 		cout << "\n---------------------------------\n";
 		group[i]->print();
@@ -48,33 +48,37 @@ void main()
 	for (int i = 0; i < sizeof(group)/sizeof(Human*); i++)
 	{
 		delete[] group[i];
-	}
+	}*/
 
-	fstream fout("FileGroup.txt", std::ios_base::app);		//создаем и открываем поток
+	ofstream fout("FileGroup.txt", std::ios_base::app);		//создаем и открываем поток
 	for (int i = 0; i < sizeof(group) / sizeof(Human*); i++)
 	{
 		cout << "\n---------------------------------\n";
-		fout << &group[i] << endl;
+		group[i]->print();
 	}
 	//fout << sizeof(group) << endl;
+	for (int i = 0; i < sizeof(group) / sizeof(Human*); i++)
+	{
+		delete[] group[i];
+	}
 	fout.close();
 	system("notepad FileGroup.txt");
 
-	const int SIZE = 256;
-	char buffer[SIZE] = {};
+	//const int SIZE = 256;
+	//char buffer[SIZE] = {};
 
-	ifstream fin("FileGroup.txt");
-	if (fin.is_open())
-	{
-		while (!fin.eof())			//пока не конец файл(end of file)
-		{
-			//fin >> buffer;
-			fin.getline(buffer, SIZE);
-			cout << buffer << endl;
-		}
-	}
-	else {
-		cerr << "File not found" << endl;
-	}
-	fin.close();
+	//ifstream fin("FileGroup.txt");
+	//if (fin.is_open())
+	//{
+	//	while (!fin.eof())			//пока не конец файл(end of file)
+	//	{
+	//		//fin >> buffer;
+	//		fin.getline(buffer, SIZE);
+	//		cout << buffer << endl;
+	//	}
+	//}
+	//else {
+	//	cerr << "File not found" << endl;
+	//}
+	//fin.close();
 }
