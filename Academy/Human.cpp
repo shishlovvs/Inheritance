@@ -46,6 +46,10 @@ Human::Human(const string& last_name, const string& first_name, unsigned int age
 	cout << last_name << " " << first_name << " " << age << " ëåò.\n";
 }
 
+ostream& operator<<(ostream& os, const Human& obj)
+{
+	return os << obj.get_last_name() << " " << obj.get_first_name() << " " << obj.get_age() << " ëåò.";
+}
 /////////////////////////////
 //ÊÎÍÅÖ ÎÏĞÅÄÅËÅÍÈß ÊËÀÑÑÀ//
 ////////////////////////////

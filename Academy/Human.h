@@ -27,8 +27,9 @@ public:
 	virtual ~Human();
 	//Methods:
 	virtual void print()const;
-};
 
+};
+ostream& operator<<(ostream& os, const Human& obj);
 ///////////////////////////
 //ÊÎÍÅÖ ÎÁÚßÂËÅÍÈÅ ÊËÀÑÑÀ//
 ///////////////////////////

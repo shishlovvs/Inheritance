@@ -54,7 +54,8 @@ void main()
 	for (int i = 0; i < sizeof(group) / sizeof(Human*); i++)
 	{
 		cout << "\n---------------------------------\n";
-		group[i]->print();
+		//group[i]->print();
+		cout << *group[i] << endl;
 	}
 	//fout << sizeof(group) << endl;
 	for (int i = 0; i < sizeof(group) / sizeof(Human*); i++)
