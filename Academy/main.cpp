@@ -55,7 +55,10 @@ void main()
 	{
 		cout << "\n---------------------------------\n";
 		//group[i]->print();
-		cout << *group[i] << endl;
+		//cout << typeid(*group[i]).name()<< endl;
+		if (typeid(*group[i]) == typeid(Student))cout << *dynamic_cast<Student*>(group[i]) << endl;
+		if (typeid(*group[i]) == typeid(Graduated))cout << *dynamic_cast<Graduated*>(group[i]) << endl;
+		if (typeid(*group[i]) == typeid(Teacher))cout << *dynamic_cast<Teacher*>(group[i]) << endl;
 	}
 	//fout << sizeof(group) << endl;
 	for (int i = 0; i < sizeof(group) / sizeof(Human*); i++)

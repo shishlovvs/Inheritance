@@ -1,4 +1,5 @@
 #include"Teacher.h"
+//#define DEBUG
 const string& Teacher::get_subject()const
 {
 	return subject;
@@ -25,11 +26,17 @@ Teacher::Teacher
 {
 	set_subject(subject);
 	set_experience(experience);
+#ifdef DEBUG
 	cout << "TConstructor:\t" << this << endl;
+#endif // DEBUG
+
 }
 Teacher::~Teacher()
 {
+#ifdef DEBUG
 	cout << "TDestructor:\t" << this << endl;
+#endif // DEBUG
+
 }
 
 //Methods:
@@ -37,4 +44,10 @@ void Teacher::print()const
 {
 	Human::print();
 	cout << "Предмет: " << subject << " Преподавательский стаж: " << experience << endl;
+}
+
+ostream& operator<<(ostream& os, const Teacher& obj)
+{
+	os << (Human)obj;
+	return os << " , предмет:" << obj.get_subject() << ", стаж работы:" << obj.get_experience();
 }

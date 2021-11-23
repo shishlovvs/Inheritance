@@ -1,4 +1,5 @@
 #include"Graduated.h"
+//#define DEBUG
 const string& Graduated::get_main_theme_of_diploma()const
 {
 	return main_theme_of_diploma;
@@ -26,15 +27,27 @@ Graduated::Graduated
 {
 	set_main_theme_of_diploma(main_theme_of_diploma);
 	set_readiness(readiness);
+#ifdef DEBUG
 	cout << "GConstructor:\t" << this << endl;
+#endif // DEBUG
+
 }
 Graduated::~Graduated()
 {
+#ifdef DEBUG
 	cout << "GConstructor:\t" << this << endl;
+#endif // DEBUG
+
 }
 //Methods:
 void Graduated::print()const
 {
 	Student::print();
 	cout << "Название диплома: " << main_theme_of_diploma << " Готовность: " << readiness << endl;
+}
+
+ostream& operator<<(ostream& os, const Graduated& obj)
+{
+	os << (Human)obj;
+	return os << ", тема диплома:" << obj.get_main_theme_of_diploma() << ", готовность:" << obj.get_readiness();
 }

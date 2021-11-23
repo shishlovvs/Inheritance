@@ -1,4 +1,5 @@
 #include"Student.h"
+//#define DEBUG
 const string& Student::get_speciality()const
 {
 	return speciality;
@@ -34,15 +35,27 @@ Student::Student
 	set_speciality(speciality);
 	set_group(group);
 	set_rating(rating);
+#ifdef DEBUG
 	cout << "SConstructor:\t" << this << endl;
+#endif // DEBUG
+
 }
 Student::~Student()
 {
+#ifdef DEBUG
 	cout << "SDestructor:\t" << this << endl;
+#endif // DEBUG
+
 }
 //Methods
 void Student::print()const
 {
 	Human::print();
 	cout << "Специальность: " << speciality << " Группа: " << group << " Успеваемость: " << rating << endl;
+}
+
+ostream& operator<<(ostream& os, const Student& obj)
+{
+	os << (Human)obj;
+	return os << " , спец:" << obj.get_speciality() << ", группа:" << obj.get_group() << ", рейтинг:" << obj.get_rating();
 }

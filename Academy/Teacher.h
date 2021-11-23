@@ -21,3 +21,5 @@ public:
 	//Methods:
 	void print()const;
 };
+
+ostream& operator<<(ostream& os, const Teacher& obj);

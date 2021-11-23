@@ -3,6 +3,8 @@
 //ÎÏĞÅÄÅËÅÍÈÅ ÊËÀÑÑÀ//
 /////////////////////
 
+//#define DEBUG
+
 const string& Human::get_last_name()const
 {
 	return last_name;
@@ -34,11 +36,17 @@ Human::Human(const string& last_name, const string& first_name, unsigned int age
 	set_last_name(last_name);
 	set_first_name(first_name);
 	set_age(age);
+#ifdef DEBUG
 	cout << "HConstructor:\t" << this << endl;
+#endif // DEBUG
+
 }
 /*virtual*/ Human::~Human()
 {
+#ifdef DEBUG
 	cout << "HDestructor:\t" << this << endl;
+#endif // DEBUG
+
 }
 //Methods:
 /*virtual*/ void Human::print()const

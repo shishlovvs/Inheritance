@@ -23,3 +23,5 @@ public:
 	//Methods
 	void print()const;
 };
+
+ostream& operator<<(ostream& os, const Student& obj);
