@@ -64,21 +64,21 @@ void main()
 	fout.close();
 	system("notepad FileGroup.txt");
 
-	//const int SIZE = 256;
-	//char buffer[SIZE] = {};
+	const int SIZE = 256;
+	char buffer[SIZE] = {};
 
-	//ifstream fin("FileGroup.txt");
-	//if (fin.is_open())
-	//{
-	//	while (!fin.eof())			//пока не конец файл(end of file)
-	//	{
-	//		//fin >> buffer;
-	//		fin.getline(buffer, SIZE);
-	//		cout << buffer << endl;
-	//	}
-	//}
-	//else {
-	//	cerr << "File not found" << endl;
-	//}
-	//fin.close();
+	ifstream fin("FileGroup.txt");
+	if (fin.is_open())
+	{
+		while (!fin.eof())			//пока не конец файл(end of file)
+		{
+			fin >> buffer;
+			fin.getline(buffer, SIZE);
+			cout << buffer << endl;
+		}
+	}
+	else {
+		cerr << "File not found" << endl;
+	}
+	fin.close();
 }
